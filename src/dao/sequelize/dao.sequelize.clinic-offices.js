@@ -122,6 +122,26 @@ export class ClinicOfficesDAO{
     }
 
     
+    static async upddateMedicalOffice(medicalOfficeId,{newMedicalOfficeName,newMedicalOfficeStatusId}){
+        try{
+            console.log('MM: ', medicalOfficeId)
+            const newData = {}
+            if (newMedicalOfficeStatusId) newData.nombre_consultorio = newMedicalOfficeName
+            if (newMedicalOfficeStatusId) newData.office_status_id = newMedicalOfficeStatusId
+            //hago el update .
+            await ConsultoriosModel.update(newData,{where:{id_consultorio:medicalOfficeId}})
+        
+            //Como quiero que devuelva el DTO usando la vista vw_medical_offices WHERE
+            const [updateResult] = await myDB.query(`SELECT * FROM vw_medical_offices WHERE id_consultorio = ${medicalOfficeId}`)
+            //console.log(updateResult)
+            return getMedicalOfficeDTO(updateResult[0])
+        }catch(error){
+            console.log(error)
+            throw error
+        }
+    }
+
+    
 }
 
 

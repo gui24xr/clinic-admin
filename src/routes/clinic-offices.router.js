@@ -32,7 +32,7 @@ clinicOfficesRouter.delete('/clinicbranchs/:cid')
 clinicOfficesRouter.post('/clinicbranchs/:cid/medicaloffices', ClinicOfficesController.createMedicalOffice)
 clinicOfficesRouter.get('/medicaloffices', ClinicOfficesController.getMedicalOffices)
 clinicOfficesRouter.put('/medicaloffices/:mid')
-clinicOfficesRouter.put('/medicaloffices/:mid/status')
+clinicOfficesRouter.put('/medicaloffices/:mid/status', ClinicOfficesController.changeMedicalOfficeStatus)
 clinicOfficesRouter.delete('/medicaloffices/:cid')
 clinicOfficesRouter.get('/medicalOffices/statuslist')
 

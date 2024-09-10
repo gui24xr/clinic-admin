@@ -73,6 +73,18 @@ export class ClinicOfficesRepositories{
         }
     }
 
+    static async changeMedicalOfficeStatus({medicalOfficeId,newStatusId}){
+        try{
+            const result = await ClinicOfficesDAO.upddateMedicalOffice(medicalOfficeId,{
+                newMedicalOfficeStatusId:newStatusId
+                })
+            return result
+        }catch(error){
+            console.log(error)
+            throw error
+        }
+    }
+
 
 
 

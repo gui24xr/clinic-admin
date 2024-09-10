@@ -90,6 +90,26 @@ export class ClinicOfficesController{
     }
 
     
+    static async changeMedicalOfficeStatus(req,res,next){
+        const {mid: medicalOfficeId} = req.params
+        const {newStatusId} = req.body   //Validar todo
+        try{
+            const result = await ClinicOfficesRepositories.changeMedicalOfficeStatus({
+                medicalOfficeId : medicalOfficeId,
+                newStatusId: newStatusId
+            })
+            return res.status(201).json({
+                message: 'ok',
+                payload: result
+             })
+        }catch(error){
+            return res.status(500).json({message:error.message})
+        }
+        }
+
+    }
+
+    
  /*
     
     static async getConsultorios(req,res,next){
@@ -124,4 +144,3 @@ export class ClinicOfficesController{
         }
     }
     */
-}

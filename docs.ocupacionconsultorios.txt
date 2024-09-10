@@ -1,0 +1,16 @@
+Cada consultorio o medicalOffice tendra un medicalOfficeStatus.
+
+cada medicalOfficeStatus es un codigo que indica el estado. EJ:
+
+medicalOfficeCode    medicalOfficeStatus
+        1                   disponible
+        2                   tareas de limpieza
+        3                   tareas de mantenimiento
+        4                   prestacion medica clinica dr tal
+
+
+Este codigo tambien se encontrara en la tabla de prestacion medica. 
+Entonces cuando queremos ocupar un consultorio con una prestacion medica buscamos el codigo en
+la tabla y ese codigo lo insertamos en el status del consultorio asi actualizando su estado.
+De esta manera podremos saber si un consultorio esta disponible o en uso y redirigir pacientes a 
+los consultorios.

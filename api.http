@@ -1,0 +1,21 @@
+###
+GET http://localhost:8080/sedes
+
+### POST SEDES
+POST http://localhost:8080/sedes
+Content-Type: application/json
+{
+    "nombre_sede": "Sede 1",
+}
+
+### PUT Request
+PUT http://localhost:8080/consultorios/2
+Content-Type: application/json
+
+{
+    "nombre_sede": "Sede 2355",
+    "en_servicio": true
+}
+
+###DELETE Request
+DELETE http://localhost:8080/consultorios/9
